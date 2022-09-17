@@ -9,16 +9,17 @@ public class FormSistema extends javax.swing.JFrame {
     Comparator<Dados> compareMetaScore = 
             (Dados a1, Dados a2) ->
                     (int) (a1.getMetascore()- a2.getMetascore());
-    Comparator<Dados> compareUserScore = 
+    Comparator<Dados> compareRanking = 
             (Dados a1, Dados a2) ->
                     (int) (a1.getRanking()- a2.getRanking());
-    Comparator<Dados> compareData = 
+    Comparator<Dados> comparePlatform = 
             (Dados a1, Dados a2) ->
-                    a1.getReleaseDate().compareTo(a2.getReleaseDate());
-    /*
-    Comparator<Dados> comparePrioridade = 
+                    a1.getPlatform().compareTo(a2.getPlatform());
+    
+   Comparator<Dados> compareName = 
             (Dados a1, Dados a2) ->
-                    a1.getPrioridade()- a2.getPrioridade();*/
+                    a1.getName().compareTo(a2.getName());
+    
     
     public FormSistema() {
         initComponents();
@@ -94,12 +95,12 @@ public class FormSistema extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Data", "Cidade", "Condição", "Tendencia", "Mínima", "Máxima", "Vento Min", "Vento Max", "Direção Vento"
+                "Nome", "Ranking", "Nota Metacritic", "Plataforma", "Data Lançamento"
             }
         ));
         jScrollPane1.setViewportView(tabelaDados);
 
-        cbOrdena.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data", "Cidade", "Minima", "Máxima", "Vento Min", "Vento Max", " " }));
+        cbOrdena.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome", "Ranking", "Nota Metacritic", "Plataforma", "Data lançamento" }));
         cbOrdena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbOrdenaActionPerformed(evt);
@@ -122,6 +123,11 @@ public class FormSistema extends javax.swing.JFrame {
 
         buttonGroup1.add(opSeq);
         opSeq.setText("Sequencial");
+        opSeq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opSeqActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -226,7 +232,7 @@ public class FormSistema extends javax.swing.JFrame {
        
         DefaultTableModel model = 
                 (DefaultTableModel)tabelaDados.getModel();
-        Object rowData[] = new Object[6];// qtd colunas
+        Object rowData[] = new Object[5];// qtd colunas
         for(Dados d: lista)
         {
             rowData[0] = d.getName();
@@ -249,12 +255,14 @@ public class FormSistema extends javax.swing.JFrame {
     
     private void btnOrdNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdNomeActionPerformed
     switch(cbOrdena.getSelectedIndex()){    
-        case 0: lista.sort(compareData);
+        case 0: Collections.sort(lista);
             break;
-        case 1: Collections.sort(lista);
+        case 1: lista.sort(compareRanking);
             break;
         case 2: lista.sort(compareMetaScore);
             break;
+         case 3: lista.sort(comparePlatform);
+            break; 
         default: JOptionPane.showMessageDialog(null,"Em construção!");    
         }    
         mostra();
@@ -291,6 +299,10 @@ public class FormSistema extends javax.swing.JFrame {
     private void cbOrdenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbOrdenaActionPerformed
+
+    private void opSeqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opSeqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opSeqActionPerformed
     
     /**
      * @param args the command line arguments

@@ -193,33 +193,62 @@
               <Properties>
                 <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="9" rowCount="0">
-                    <Column editable="true" title="Data" type="java.lang.Object"/>
-                    <Column editable="true" title="Cidade" type="java.lang.Object"/>
-                    <Column editable="true" title="Condi&#xe7;&#xe3;o" type="java.lang.Object"/>
-                    <Column editable="true" title="Tendencia" type="java.lang.Object"/>
-                    <Column editable="true" title="M&#xed;nima" type="java.lang.Object"/>
-                    <Column editable="true" title="M&#xe1;xima" type="java.lang.Object"/>
-                    <Column editable="true" title="Vento Min" type="java.lang.Object"/>
-                    <Column editable="true" title="Vento Max" type="java.lang.Object"/>
-                    <Column editable="true" title="Dire&#xe7;&#xe3;o Vento" type="java.lang.Object"/>
+                  <Table columnCount="5" rowCount="0">
+                    <Column editable="true" title="Nome" type="java.lang.Object"/>
+                    <Column editable="true" title="Ranking" type="java.lang.Object"/>
+                    <Column editable="true" title="Nota Metacritic" type="java.lang.Object"/>
+                    <Column editable="true" title="Plataforma" type="java.lang.Object"/>
+                    <Column editable="true" title="Data Lan&#xe7;amento" type="java.lang.Object"/>
                   </Table>
                 </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="FormSistema_tabelaDados"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JComboBox" name="cbOrdena">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
-                <StringItem index="0" value="Data"/>
-                <StringItem index="1" value="Cidade"/>
-                <StringItem index="2" value="Minima"/>
-                <StringItem index="3" value="M&#xe1;xima"/>
-                <StringItem index="4" value="Vento Min"/>
-                <StringItem index="5" value="Vento Max"/>
-                <StringItem index="6" value=" "/>
+              <StringArray count="5">
+                <StringItem index="0" value="Nome"/>
+                <StringItem index="1" value="Ranking"/>
+                <StringItem index="2" value="Nota Metacritic"/>
+                <StringItem index="3" value="Plataforma"/>
+                <StringItem index="4" value="Data lan&#xe7;amento"/>
               </StringArray>
             </Property>
           </Properties>
@@ -270,6 +299,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Sequencial"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opSeqActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
